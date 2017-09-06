@@ -1,0 +1,21 @@
+#authentication-form {
+	margin-top: 25px;
+	.col-md-4 {
+		margin: 0 auto;
+	}
+	form {
+		background-color: #f7f7f7;
+		padding: 25px;
+		border-radius: 5px;
+		.btn {
+			width: 100%;
+		}
+	}
+	.shared-links {
+		text-align: center;
+		font-size: 14px;
+		p {
+			margin: 0;
+		}
+	}
+}

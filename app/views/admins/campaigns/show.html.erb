@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<h2><%= @campaign.name %></h2>
+			<ul>
+				<li>Title: <%= @campaign.title %></li>
+				<li>Description: <%= @campaign.description %></li>
+				<li>Active: <%= @campaign.active %></li>
+				<%= link_to "Edit", edit_admins_campaign_path(@campaign), class: "btn btn-sm btn-secondary" %>
+				<%= link_to "Add page", new_admins_campaign_page_path(@campaign), class: "btn btn-sm btn-primary" %>
+			</ul>
+			<p>Currently <%= pluralize(@campaign.pages.count, "page") %></p>
+			<% @campaign.pages.each do |page| %>
+				<ul>
+					<li><%= link_to "#{page.title}", admins_campaign_page_path(@campaign, page) %></li>
+				</ul>
+			<% end %>
+			<%= link_to "Simulate user", campaign_path(@campaign), class: "btn btn-md btn-primary" %>
+		</div>
+	</div>
+</div>

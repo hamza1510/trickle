@@ -1,0 +1,22 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#users-pages-index {
+	header {
+		text-align: center;
+		margin-top: 25px;
+	}
+	.users-pages-wrapper {
+		.users-page-item {
+			.btn {
+				margin-top: 5px;
+				width: 100%;
+			}
+		}
+	}
+}
+
+#users-page-show {
+	margin-top: 25px;
+}

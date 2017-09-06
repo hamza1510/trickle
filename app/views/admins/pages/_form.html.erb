@@ -1,0 +1,28 @@
+<%= render "admins/partials/error_messages", item: @page %>
+<%= form_for [:admins, @campaign, @page] do |f| %>
+	<div class="form-group">
+		<%= f.label :page_type %>
+		<%= f.select :page_type, ['content', 'uri', 'url', 'email', 'phone'], class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :url, "URL, URI, email or phonenumber" %>
+		<p style="font-size: 12px;">Do not use http when using url/uri. Example: facebook.com or www.facebook.com</p>
+		<%= f.text_field :url, class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :title, "Title (displayed as the button)" %>
+		<%= f.text_field :title, class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :content, "Content (applies only if type content is selected)" %>
+		<p style="font-size: 12px;">Content will be shown for users when they click the page, but only if content is selected as the page type.</p>
+		<%= f.text_area :content, class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.submit class: "btn btn-md btn-primary" %>
+	</div>
+<% end %>

@@ -1,0 +1,13 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<ul>
+				<li>Page type: <%= @page.page_type %></li>
+				<li>URL: <%= @page.url %></li>
+				<li>Title: <%= @page.title %></li>
+				<li>Content: <%= @page.content %></li>
+			</ul>
+			<%= link_to "Edit", edit_admins_campaign_page_path(@campaign, @page), class: "btn btn-md btn-secondary" %>
+		</div>
+	</div>
+</div>

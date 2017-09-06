@@ -1,0 +1,24 @@
+<div id="admin-dashboard-index">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<header>
+					<h2>Dashboard for <%= current_admin.company %></h2>
+				</header>
+
+				<div class="admin-campaigns-wrapper">
+					<h4>Your campaigns</h4>
+					<% @campaigns.each do |campaign| %>
+						<ul>
+							<li>
+								<%= link_to "#{campaign.name}", admins_campaign_path(campaign) %> |
+								<%= pluralize(campaign.pages.count, "page") %>
+							</li>
+						</ul>
+					<% end %>
+				</div>
+				<%= link_to "New campaign", new_admins_campaign_path, class: "btn btn-md btn-secondary" %>
+			</div>
+		</div>
+	</div>
+</div>
