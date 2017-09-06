@@ -10,7 +10,7 @@ class Admins::PagesController < AdminsController
 		@page = @campaign.pages.new(page_params)
 		if @page.save
 			flash[:notice] = "New page is created."
-			redirect_to root_url
+			redirect_to admins_campaign_url(@campaign)
 		else
 			flash[:alert] = "Couldn't create page."
 			render :new
@@ -29,7 +29,7 @@ class Admins::PagesController < AdminsController
 		@page = @campaign.pages.find(params[:id])
 		if @page.update_attributes(page_params)
 			flash[:notice] = "Page is updated."
-			redirect_to root_url
+			redirect_to admins_campaign_url(@campaign)
 		else
 			flash[:alert] = "Couldn't update page."
 			render :new

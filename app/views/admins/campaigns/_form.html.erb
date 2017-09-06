@@ -1,6 +1,5 @@
 <%= render "admins/partials/error_messages", item: @campaign %>
 <%= form_for [:admins, @campaign] do |f| %>
-	<p style="font-size: 12px"><b>How it works:</b> After you've created a campaign, you will be able to add pages to it. To add pages to a campaign you need to leave the URL here <b>blank</b>.</p>
 	<div class="form-group">
 		<%= f.label :url, "URL (filling out this will always redirect users to the selected URL if campaign is active.
 		Remove any http. Example: facebook.com or www.facebook.com)" %>

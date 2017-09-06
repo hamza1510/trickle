@@ -1,23 +1,45 @@
+<br>
 <div id="admin-dashboard-index">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
 				<header>
-					<h2>Dashboard for <%= current_admin.company %></h2>
+					<h3>Dashboard for <%= current_admin.company %></h3>
 				</header>
+			</div>
+		</div>
+	</div>
 
+	<br>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
 				<div class="admin-campaigns-wrapper">
-					<h4>Your campaigns</h4>
-					<% @campaigns.each do |campaign| %>
-						<ul>
-							<li>
-								<%= link_to "#{campaign.name}", admins_campaign_path(campaign) %> |
-								<%= pluralize(campaign.pages.count, "page") %>
+					<h5>Your campaigns</h5>
+					<ul class="list-group">
+						<% @campaigns.each do |campaign| %>
+							<li class="list-group-item justify-content-between">
+								<%= link_to "#{campaign.name}", admins_campaign_path(campaign) %>
+								<% if campaign.active? %>
+									<span class="badge badge-default badge-pill badge-success">Active</span>
+								<% else %>
+									<span class="badge badge-default badge-pill badge-danger">Inactive</span>
+								<% end %>
 							</li>
-						</ul>
-					<% end %>
+						<% end %>
+					</ul>
 				</div>
-				<%= link_to "New campaign", new_admins_campaign_path, class: "btn btn-md btn-secondary" %>
+			</div>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<%= link_to "New campaign", new_admins_campaign_path, class: "btn btn-md btn-primary" %>
 			</div>
 		</div>
 	</div>

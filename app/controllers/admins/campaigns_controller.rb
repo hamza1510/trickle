@@ -28,7 +28,7 @@ class Admins::CampaignsController < AdminsController
 		@campaign = current_admin.campaigns.find(params[:id])
 		if @campaign.update_attributes(campaign_params)
 			flash[:notice] = "campaign is updated."
-			redirect_to root_url
+			redirect_to admins_campaign_url(@campaign)
 		else
 			flash[:alert] = "Couldn't update campaign."
 			render :new

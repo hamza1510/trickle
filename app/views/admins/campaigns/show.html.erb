@@ -1,21 +1,42 @@
+<br>
+
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12">
-			<h2><%= @campaign.name %></h2>
-			<ul>
-				<li>Title: <%= @campaign.title %></li>
-				<li>Description: <%= @campaign.description %></li>
-				<li>Active: <%= @campaign.active %></li>
-				<%= link_to "Edit", edit_admins_campaign_path(@campaign), class: "btn btn-sm btn-secondary" %>
-				<%= link_to "Add page", new_admins_campaign_page_path(@campaign), class: "btn btn-sm btn-primary" %>
-			</ul>
-			<p>Currently <%= pluralize(@campaign.pages.count, "page") %></p>
-			<% @campaign.pages.each do |page| %>
-				<ul>
-					<li><%= link_to "#{page.title}", admins_campaign_page_path(@campaign, page) %></li>
-				</ul>
-			<% end %>
-			<%= link_to "Simulate user", campaign_path(@campaign), class: "btn btn-md btn-primary" %>
+
+			<div class="row">
+				<div class="col-lg-6">
+			  	<h3 class="card-title"><%= @campaign.name %></h3>
+		    	<div class="card">
+		      	<div class="card-block">
+			        <p class="card-text">Heading: <%= @campaign.title %></p>
+			        <p class="card-text">Description: <%= @campaign.description %></p>
+			        <p class="card-text">Active: <%= @campaign.active %></p>
+			        <p class="card-text">Currently <%= pluralize(@campaign.pages.count, "page") %></p>
+					    <%= link_to "Edit", edit_admins_campaign_path(@campaign), class: "btn btn-secondary" %>
+					    <%= link_to "Add page", new_admins_campaign_page_path(@campaign), class: "btn btn-primary" %>
+					    <%= link_to "Simulate user", campaign_path(@campaign), class: "btn btn-md btn-success" %>
+					  </div>
+					</div>
+					<br>
+				</div>
+
+				<div class="col-lg-6">
+					<h3 class="card-title">Pages</h3>
+					<% if @campaign.pages.any? %>
+						<ul class="list-group">
+							<% @campaign.pages.each do |page| %>
+					  		<li class="list-group-item justify-content-between">
+					  			<%= link_to "#{page.title}", admins_campaign_page_path(@campaign, page) %>
+					  		</li>
+							<% end %>
+						</ul>
+					<% else %>
+						<p>You haven't added any pages to this campaign yet.</p>
+					<% end %>
+				</div>
+			</div>
+
 		</div>
 	</div>
 </div>

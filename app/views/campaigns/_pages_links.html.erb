@@ -1,0 +1,7 @@
+<% @pages.each do |page| %>
+	<%= link_to "#{page.title}", "http://#{page.url}", class: "btn btn-lg btn-primary btn-block" if page.page_type == "url" %>
+	<%= link_to "#{page.title}", "#{page.url}", class: "btn btn-lg btn-primary btn-block" if page.page_type == "uri" %>
+	<%= mail_to "#{page.url}", "#{page.title}", class: "btn btn-lg btn-primary btn-block" if page.page_type == "email" %>
+	<%= link_to "#{page.title}", "tel:#{page.url}", class: "btn btn-lg btn-primary btn-block" if page.page_type == "phone" %>
+	<%= link_to "#{page.title}", campaign_page_path(@campaign, page), class: "btn btn-lg btn-primary btn-block" if page.page_type == "content" %>
+<% end %>
