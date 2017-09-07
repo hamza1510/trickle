@@ -1,5 +1,5 @@
 class Admins::PagesController < AdminsController
-	before_action :set_campaign, only: [:new, :create, :show, :edit, :update]
+	before_action :set_campaign, only: [:new, :create, :show, :edit, :update, :destroy]
 	# before_action :restrict_permissions, only: [:show, :edit]
 
 	def new
@@ -33,6 +33,14 @@ class Admins::PagesController < AdminsController
 		else
 			flash[:alert] = "Couldn't update page."
 			render :new
+		end
+	end
+
+	def destroy
+		@page = @campaign.pages.find(params[:id])
+		if @page.destroy
+			flash[:notice] = "Page is deleted."
+			redirect_to admins_campaign_url(@campaign)
 		end
 	end
 

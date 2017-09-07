@@ -27,11 +27,19 @@ class Admins::CampaignsController < AdminsController
 	def update
 		@campaign = current_admin.campaigns.find(params[:id])
 		if @campaign.update_attributes(campaign_params)
-			flash[:notice] = "campaign is updated."
+			flash[:notice] = "Campaign is updated."
 			redirect_to admins_campaign_url(@campaign)
 		else
 			flash[:alert] = "Couldn't update campaign."
 			render :new
+		end
+	end
+
+	def destroy
+		@campaign = Campaign.find(params[:id])
+		if @campaign.destroy
+			flash[:notice] = "Campaign deleted."
+			redirect_to root_path
 		end
 	end
 

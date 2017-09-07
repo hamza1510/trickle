@@ -16,6 +16,7 @@
 					    <%= link_to "Edit", edit_admins_campaign_path(@campaign), class: "btn btn-secondary" %>
 					    <%= link_to "Add page", new_admins_campaign_page_path(@campaign), class: "btn btn-primary" %>
 					    <%= link_to "Simulate user", campaign_path(@campaign), class: "btn btn-md btn-success" %>
+					    <%= link_to "Delete", admins_campaign_path(@campaign), class: "btn btn-md btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete campaign #{@campaign.name}? This action is irreversable and will delete every pages associated with the campaign." } %>
 					  </div>
 					</div>
 					<br>
@@ -28,6 +29,7 @@
 							<% @campaign.pages.each do |page| %>
 					  		<li class="list-group-item justify-content-between">
 					  			<%= link_to "#{page.title}", admins_campaign_page_path(@campaign, page) %>
+					  			<%= link_to "Delete", admins_campaign_page_path(@campaign, page), method: :delete, data: { confirm: "Are you sure you want to delete #{page.title}? This action is irreversable." } %>
 					  		</li>
 							<% end %>
 						</ul>
