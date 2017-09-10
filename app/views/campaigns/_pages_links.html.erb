@@ -1,7 +1,19 @@
 <% @pages.each do |page| %>
-	<%= link_to "#{page.title}", "http://#{page.url}", class: "btn btn-lg btn-primary btn-block" if page.page_type == "url" %>
-	<%= link_to "#{page.title}", "#{page.url}", class: "btn btn-lg btn-primary btn-block" if page.page_type == "uri" %>
-	<%= mail_to "#{page.url}", "#{page.title}", class: "btn btn-lg btn-primary btn-block" if page.page_type == "email" %>
-	<%= link_to "#{page.title}", "tel:#{page.url}", class: "btn btn-lg btn-primary btn-block" if page.page_type == "phone" %>
-	<%= link_to "#{page.title}", campaign_page_path(@campaign, page), class: "btn btn-lg btn-primary btn-block" if page.page_type == "content" %>
-<% end %>
+	<% if page.button_photo.present? %>
+		<div id="page-item-background-button" style="background-image: url(<%= page.button_photo.url %>);">
+			<%= link_to "#{page.title}", "http://#{page.url}", class: "" if page.page_type == "url" %>
+			<%= link_to "#{page.title}", "#{page.url}", class: "" if page.page_type == "uri" %>
+			<%= mail_to "#{page.url}", "#{page.title}", class: "" if page.page_type == "email" %>
+			<%= link_to "#{page.title}", "tel:#{page.url}", class: "" if page.page_type == "phone" %>
+			<%= link_to "#{page.title}", campaign_page_path(@campaign, page), class: "" if page.page_type == "content" %>
+		</div>
+	<% else %>
+		<div class="page-item-no-background">
+			<%= link_to "#{page.title}", "http://#{page.url}", class: "btn btn-lg btn-primary btn-block" if page.page_type == "url" %>
+			<%= link_to "#{page.title}", "#{page.url}", class: "btn btn-lg btn-primary btn-block" if page.page_type == "uri" %>
+			<%= mail_to "#{page.url}", "#{page.title}", class: "btn btn-lg btn-primary btn-block" if page.page_type == "email" %>
+			<%= link_to "#{page.title}", "tel:#{page.url}", class: "btn btn-lg btn-primary btn-block" if page.page_type == "phone" %>
+			<%= link_to "#{page.title}", campaign_page_path(@campaign, page), class: "btn btn-lg btn-primary btn-block" if page.page_type == "content" %>
+		</div>
+	<% end %>
+<% end %> 

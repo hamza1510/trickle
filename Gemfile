@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem "paperclip", "~> 5.0.0"
 gem 'devise'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'sprockets-rails', :require => 'sprockets/railtie'

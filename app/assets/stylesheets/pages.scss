@@ -8,10 +8,26 @@
 		margin-top: 25px;
 	}
 	.users-pages-wrapper {
-		.users-page-item {
+		.page-item-no-background {
+			margin-top: 5px;
 			.btn {
-				margin-top: 5px;
 				width: 100%;
+				padding: 51.5px !important; // Matching padding 50 on background images, weird css stuff.
+			}
+		}
+		#page-item-background-button {
+			margin-top: 5px;
+			border-radius: .3rem;
+			text-align: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			a {
+				display: block;
+				color: #fff;
+				text-decoration: none;
+				padding: 50px;
+				font-size: 1.25rem;
 			}
 		}
 	}
